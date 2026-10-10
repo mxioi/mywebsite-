@@ -1,74 +1,39 @@
-# Isle of Wight Takeover 2026
+# Isle of Wight Takeover 2027
 
-A static countdown website for the Isle of Wight Takeover 2026 event.
+A static countdown website for the Isle of Wight Takeover 2027, live at https://iowto.mxioi.uk.
 
 ## Overview
 
-This site provides:
-- Countdown timer to the event (tentative date)
-- Photo gallery from previous events
-- Event information and WhatsApp group link
-- Responsive design optimized for mobile and desktop
+The site is a single page (`index.html`) with:
+- A full-screen hero with a live countdown to Show Day
+- The weekend schedule (Takeover Party Saturday 15 May, Show Day Sunday 16 May 2027)
+- Venue, tickets, travel and what-to-bring info
+- A photo gallery with a tap-to-enlarge viewer
+- A map of the venue and links to the WhatsApp group
+- Light and dark mode (follows the visitor's system setting, with a toggle)
 
-## IOW Takeover 2026 Updates
+It uses plain HTML, CSS and JavaScript with no build step. Leaflet draws the map.
 
-### Event Details
-- **Expected timeframe:** Summer 2026 (exact dates TBC)
-- **Current tentative date:** July 1, 2026 at 3:00 PM BST
-- **Status:** Date not yet confirmed
+## Updating event details
 
-### Updating the Event Date
+Everything you are likely to change lives in the **SITE CONFIG** block near the bottom of `index.html`:
 
-When the official date is confirmed:
-
-1. Edit `index.html` (line ~316-317):
-   ```javascript
-   const targetDate = new Date('2026-07-01T15:00:00+01:00').getTime();
-   const confirmed = false; // Change this to true
-   ```
-
-2. Update the date in `targetDate` to the confirmed date
-3. Change `confirmed` from `false` to `true`
-4. Update the text in the event-date paragraph (line ~272-273)
-5. Commit and push changes
-
-### Photo Update Process
-
-Photos are organized in the `images/` directory:
-- `images/iow-2025/` — Previous year's photos (currently shown)
-- `images/iow-2026/` — New photos for 2026 event (to be added)
-
-#### Recommended Photo Names
-- `iow2026-hero.jpg` — Main hero image
-- `iow2026-1.jpg`, `iow2026-2.jpg`, etc. — Gallery images
-- `iow2026-group.jpg` — Group photo
-
-#### Image Optimization
-
-Before adding photos, optimize them:
-
-```bash
-# Resize and compress (requires ImageMagick)
-convert input.jpg -resize 1600x -quality 85 iow2026-hero.jpg
-
-# Create WebP version for better performance
-convert input.jpg -resize 1600x -quality 85 -define webp:lossless=false iow2026-hero.webp
+```js
+const EVENT_START = '2027-05-16T10:00:00+01:00'; // countdown target (BST = +01:00)
+const PHOTOS = [ ... ];                          // gallery photos, in order
+const VENUE = { lat, lng, name, address };       // map pin
 ```
 
-**Target specifications:**
-- Max width: 1600px
-- File size: 80-120KB
-- Format: JPEG + WebP (progressive enhancement)
+The text on the page (dates, venue card, location section) is plain HTML; search `index.html` for
+"2027" or "TBC" to find it. When the 2027 venue is announced, update:
+1. The **Venue** card in the "Everything you need" section
+2. The **Location** section card (name, address, Google Maps link)
+3. `VENUE` in the SITE CONFIG block
 
-#### Updating Gallery Images
+## Photos
 
-1. Place optimized images in `images/iow-2026/`
-2. Edit `index.html` slideshow section (lines ~247-264)
-3. Update image `src` attributes to point to new photos
-4. Update `alt` attributes with descriptive text
-5. Update Open Graph image (line ~17): `<meta property="og:image" content="images/iow-2026/iow2026-hero.jpg">`
-
-See `images/iow-2026/README.md` for detailed guidance.
+- `images/iow-2027/`: put 2027 photos here. See `images/iow-2027/README.md` for sizing and how to add them to the gallery.
+- `images/iow-2025/`: photos from previous Takeovers, web-sized (shown until 2027 photos are added).
 
 ## Local Development
 
@@ -106,9 +71,9 @@ This site is configured for GitHub Pages:
 ## Technologies Used
 
 - **HTML5** with semantic markup
-- **Tailwind CSS** (via CDN) for styling
-- **Swiper.js** for photo carousel
-- **Vanilla JavaScript** for countdown logic
+- **Hand-written CSS** with light/dark theme variables
+- **Leaflet** + OpenStreetMap for the venue map
+- **Vanilla JavaScript** for the countdown, gallery and lightbox
 - **Cloudflare Turnstile** for bot protection
 
 ## File Structure
@@ -122,9 +87,8 @@ This site is configured for GitHub Pages:
 ├── sitemap.xml            # Site map for SEO
 ├── CNAME                  # Custom domain configuration
 ├── images/
-│   ├── iow-2025/         # Previous event photos
-│   ├── iow-2026/         # New event photos (to be added)
-│   └── slideshow/        # Current slideshow images
+│   ├── iow-2025/         # Previous event photos (web-sized)
+│   └── iow-2027/         # 2027 event photos (add yours here)
 └── scripts/
     └── preview.sh        # Local preview server script
 ```

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Simple static site preview server for IOW Takeover 2026 website
+# Simple static site preview server for IOW Takeover 2027 website
 # Opens a local HTTP server to test the site before deploying
 
 set -e
 
 PORT="${PORT:-8000}"
 echo "========================================"
-echo "  IOW Takeover 2026 - Local Preview"
+echo "  IOW Takeover 2027 - Local Preview"
 echo "========================================"
 echo ""
 echo "Starting HTTP server on port ${PORT}..."

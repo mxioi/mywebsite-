@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#000000">
-    <title>Isle of Wight Takeover 2026 Countdown</title>
+    <meta name="theme-color" content="#0b0b0f">
+    <title>Isle of Wight Takeover 2027 · 15–16 May</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Isle of Wight Takeover 2026 — Party on Saturday 16th May, Main Event on Sunday 17th May. Club registration opens November 2025.">
-    <meta name="keywords" content="Isle of Wight, IOW, Takeover, 2026, event, community, car show, May 2026">
+    <meta name="description" content="Isle of Wight Takeover 2027: Takeover Party on Saturday 15th May and Show Day on Sunday 16th May 2027. Countdown, event info, photos and the WhatsApp group.">
+    <meta name="keywords" content="Isle of Wight, IOW, Takeover, 2027, car show, car meet, May 2027">
+    <link rel="canonical" href="https://iowto.mxioi.uk/">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="IOW Takeover — May 16-17, 2026">
-    <meta property="og:description" content="Join us for the Isle of Wight Takeover! Party on Saturday 16th May, Main Event on Sunday 17th May 2026.">
-    <meta property="og:image" content="images/iow-2026/iow2026-hero.jpg">
+    <meta property="og:url" content="https://iowto.mxioi.uk/">
+    <meta property="og:title" content="IOW Takeover 2027 · 15–16 May">
+    <meta property="og:description" content="Party on Saturday 15th May, Show Day on Sunday 16th May 2027. Join the WhatsApp group for updates.">
+    <meta property="og:image" content="https://iowto.mxioi.uk/images/iow-2025/bunker-cars.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="IOW Takeover — May 16-17, 2026">
-    <meta name="twitter:description" content="Join us for the Isle of Wight Takeover! Party on Saturday 16th May, Main Event on Sunday 17th May 2026.">
+    <meta name="twitter:title" content="IOW Takeover 2027 · 15–16 May">
+    <meta name="twitter:description" content="Party on Saturday 15th May, Show Day on Sunday 16th May 2027. Join the WhatsApp group for updates.">
+    <meta name="twitter:image" content="https://iowto.mxioi.uk/images/iow-2025/bunker-cars.jpg">
 
     <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com https://challenges.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com;">
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json">
@@ -28,1014 +31,645 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     <link rel="icon" type="image/png" sizes="192x192" href="/images/icon-192.png">
+    <link rel="apple-touch-icon" href="/images/icon-192.png">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <style>
-        /* Custom base styles */
-        html {
-            background-color: #000000;
-            scroll-behavior: smooth;
-        }
-        html, body {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            flex-grow: 1;
-            box-sizing: border-box;
-            padding-top: env(safe-area-inset-top);
-            padding-bottom: env(safe-area-inset-bottom);
-            padding-left: env(safe-area-inset-left);
-            padding-right: env(safe-area-inset-right);
-            background: linear-gradient(to bottom, #0f172a 0%, #000000 100%);
-            position: relative;
-            transition: padding-top 0.3s ease;
-        }
-        /* Add top padding when banner is visible */
-        body.banner-visible {
-            padding-top: calc(56px + env(safe-area-inset-top));
-        }
-        @media (max-width: 640px) {
-            body.banner-visible {
-                padding-top: calc(48px + env(safe-area-inset-top));
-            }
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 80%, rgba(129, 140, 248, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        /* Main content container */
-        .main-content {
-             flex-grow: 1;
-             display: flex;
-             flex-direction: column;
-             align-items: center;
-             justify-content: center;
-             width: 100%;
-             padding: 1rem;
-             position: relative;
-             z-index: 1;
-        }
-        @media (min-width: 640px) {
-            .main-content {
-                padding: 1.5rem;
-            }
-        }
-        @media (min-width: 768px) {
-            .main-content {
-                padding: 2rem;
-            }
-        }
-        /* Countdown container */
-        .countdown-card {
-            position: relative;
-            overflow: hidden;
-        }
-        /* Countdown numbers */
-        .countdown-number {
-            font-weight: 800;
-            font-size: clamp(2rem, 8vw, 4.5rem);
-            line-height: 1.1;
-            color: #ffffff;
-            text-shadow: 0 2px 15px rgba(56, 189, 248, 0.4);
-            font-variant-numeric: tabular-nums;
-            letter-spacing: -0.02em;
-        }
-        /* Countdown labels */
-        .countdown-label {
-            font-size: clamp(0.7rem, 2.5vw, 1rem);
-            color: #94a3b8; /* slate-400 */
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 500;
-            margin-top: 0.5rem;
-        }
-        /* Countdown card accent */
-        .countdown-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #38bdf8, #818cf8);
-            opacity: 0.6;
-        }
-        /* Message box */
-        #message-box {
-            position: fixed;
-            top: calc(20px + env(safe-area-inset-top));
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px; /* rounded-lg */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* shadow-lg */
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            font-size: 1rem;
-            text-align: center;
-            pointer-events: none;
-        }
-        #message-box.show {
-            opacity: 1;
-        }
-        /* Label icons */
-        .label-icon {
-            width: 1.1em;
-            height: 1.1em;
-            margin-right: 0.4em;
-            display: inline-block;
-            vertical-align: middle;
-            filter: invert(90%) sepia(13%) saturate(269%) hue-rotate(180deg) brightness(90%) contrast(88%);
-        }
-        /* SwiperJS */
-        .swiper-container {
-            width: 100%;
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 20px;
-            overflow: visible;
-        }
-        .swiper-slide {
-            opacity: 0.4;
-            transition: opacity 0.3s ease;
-            border-radius: 0.75rem;
-            overflow: hidden;
-        }
-        .swiper-slide-active {
-            opacity: 1;
-        }
-        .swiper-slide img {
-            display: block;
-            width: 100%;
-            height: auto;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-            border-radius: 0.75rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-        }
-        .swiper-pagination-bullet {
-            background-color: #ffffff;
-            opacity: 0.6;
-        }
-        .swiper-pagination-bullet-active {
-            opacity: 1;
-            background-color: #38bdf8; /* sky-500 */
-        }
-        /* Footer Styles */
-        footer {
-            width: 100%;
-            padding: 1.5rem; /* p-6 */
-            padding-top: 1rem;
-            padding-bottom: calc(1rem + env(safe-area-inset-bottom)); /* Add padding for safe area */
-            text-align: center;
-            color: #94a3b8; /* slate-400 */
-            font-size: 0.875rem; /* text-sm */
-            margin-top: auto; /* Push footer to bottom */
-            background-color: rgba(15, 23, 42, 0.3); /* slate-900 with opacity */
-            border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle top border */
-            position: relative;
-            z-index: 1;
-        }
-        /* Style for links within the footer */
-        footer a {
-            color: #38bdf8; /* sky-500 */
-            text-decoration: underline;
-            /* margin: 0 0.5rem; Removed margin here, handled by flex gap */
-        }
-        footer a:hover {
-            color: #7dd3fc; /* sky-300 */
-        }
-        /* Container for the top part of the footer (text/logos/links) */
-        .footer-content {
-            display: flex;
-            flex-wrap: wrap; /* Allow items to wrap on small screens */
-            justify-content: center; /* Center items horizontally */
-            align-items: center; /* Center items vertically */
-            gap: 0.5rem 1rem; /* Vertical and horizontal gap */
-            margin-bottom: 1rem; /* Space below this content, above Turnstile */
-        }
-        /* Individual items within the footer content */
-        .footer-item {
-            display: inline-flex; /* Use inline-flex for alignment */
-            align-items: center; /* Align text and logo vertically */
-            gap: 0.25rem; /* Space between text and logo */
-        }
-        .footer-item img {
-            height: 1.2em; /* Control logo size */
-            display: inline-block;
-            vertical-align: middle;
-            filter: grayscale(100%) brightness(1.5); /* Make logos subtle */
-        }
-        /* Separator style */
-        .footer-separator {
-            opacity: 0.5;
-            /* Hide separator on very small screens if content wraps poorly */
-            /* Consider adding 'hidden sm:inline' if needed */
-        }
-        /* Turnstile widget container */
-        .turnstile-container {
-            margin-top: 1rem; /* Space above Turnstile */
-            display: flex;
-            justify-content: center; /* Center the widget */
-        }
-        /* Keyboard focus visibility for accessibility */
-        a:focus, button:focus, .swiper-button-next:focus, .swiper-button-prev:focus {
-            outline: 3px solid #38bdf8; /* sky-500 */
-            outline-offset: 2px;
-        }
-        /* Update banner (dismissible) */
-        .update-banner {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, #0c4a6e 0%, #075985 100%); /* sky-900 to sky-800 */
-            color: white;
-            padding: 0.75rem 1rem;
-            text-align: center;
-            font-size: 0.875rem;
-            z-index: 1900; /* Lower than theme toggle */
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .update-banner.hidden {
-            opacity: 0;
-            transform: translateY(-100%);
-            pointer-events: none;
-        }
-        /* Reduce banner height on small screens */
-        @media (max-width: 640px) {
-            .update-banner {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.8125rem;
-                gap: 0.75rem;
-            }
-        }
-        .update-banner button {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 0.375rem;
-            cursor: pointer;
-            font-size: 0.75rem;
-            transition: background 0.2s;
-        }
-        .update-banner button:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            z-index: 1000;
-            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-            color: white;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
-        }
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        .back-to-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
-        }
-        @media (max-width: 768px) {
-            .back-to-top {
-                bottom: 80px;
-                right: 16px;
-                width: 44px;
-                height: 44px;
-            }
-        }
-        /* Theme toggle button */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 2100; /* Above banner to prevent overlap */
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            border-radius: 0.75rem;
-            padding: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-        }
-        /* Move toggle down when banner is visible */
-        body.banner-visible .theme-toggle {
-            top: 76px; /* 56px banner + 20px spacing */
-        }
-        @media (max-width: 640px) {
-            body.banner-visible .theme-toggle {
-                top: 58px; /* 48px banner + 10px spacing */
-            }
-        }
-        .theme-toggle:hover {
-            background: rgba(15, 23, 42, 1);
-            border-color: rgba(148, 163, 184, 0.4);
-            transform: scale(1.05);
-        }
-        .theme-toggle svg {
-            width: 20px;
-            height: 20px;
-            color: #94a3b8;
-            transition: all 0.3s ease;
-        }
-        .theme-toggle:hover svg {
-            color: #38bdf8;
-        }
-        /* Light mode adjustments */
-        .light .theme-toggle {
-            background: rgba(255, 255, 255, 0.9);
-            border-color: rgba(15, 23, 42, 0.1);
-        }
-        .light .theme-toggle:hover {
-            background: rgba(255, 255, 255, 1);
-            border-color: rgba(15, 23, 42, 0.2);
-        }
-        @media (max-width: 640px) {
-            .theme-toggle {
-                top: 10px;
-                right: 10px;
-            }
-        }
-        /* Global light mode styles - STRONG CONTRAST VERSION */
-        .light {
-            background: #f3f4f6 !important;
-        }
-        .light body {
-            background: #f3f4f6 !important;
-            color: #111827 !important;
-        }
-        /* Remove any radial gradients or blur effects */
-        .light body::before {
-            display: none !important;
-        }
-        /* Headings - dark and crisp */
-        .light h1,
-        .light h2,
-        .light h3 {
-            color: #111827 !important;
-        }
-        /* Countdown cards - solid white with dark text */
-        .light .countdown-card {
-            background: #ffffff !important;
-            border-color: #e5e7eb !important;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
-            backdrop-filter: none !important;
-        }
-        .light .countdown-number {
-            color: #111827 !important;
-            text-shadow: none !important;
-        }
-        .light .countdown-label {
-            color: #4b5563 !important;
-        }
-        /* Info cards - solid white with strong shadows */
-        .light .bg-slate-800\/30 {
-            background: #ffffff !important;
-            border-color: #e5e7eb !important;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
-            backdrop-filter: none !important;
-        }
-        /* Text colors - high contrast */
-        .light .text-slate-200,
-        .light .text-slate-300,
-        .light .text-slate-400 {
-            color: #374151 !important;
-        }
-        .light p,
-        .light span {
-            color: #374151;
-        }
-        /* Icon backgrounds */
-        .light .bg-sky-500\/10 {
-            background: #dbeafe !important;
-        }
-        .light .text-sky-400 {
-            color: #2563eb !important;
-        }
-        /* Banner */
-        .light .update-banner {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
-        }
-        /* Swiper - NO fade on inactive slides */
-        .light .swiper-slide {
-            opacity: 0.95 !important;
-        }
-        .light .swiper-slide-active {
-            opacity: 1 !important;
-        }
-        .light .swiper-pagination-bullet {
-            background-color: #374151 !important;
-        }
-        .light .swiper-pagination-bullet-active {
-            background-color: #2563eb !important;
-        }
-        /* Footer - solid background */
-        .light footer {
-            background-color: #ffffff !important;
-            border-top: 1px solid #e5e7eb !important;
-        }
-        .light footer a {
-            color: #2563eb !important;
-        }
-        .light .footer-separator {
-            color: #9ca3af;
-        }
-        /* Logo filters */
-        .footer-item img.dark-logo {
-            filter: invert(90%) sepia(13%) saturate(269%) hue-rotate(180deg) brightness(90%) contrast(88%);
-        }
-        .light .footer-item img.dark-logo {
-            filter: invert(1) grayscale(100%) brightness(0) !important;
-        }
-        /* Map container in light mode */
-        .light #map {
-            border-color: #d1d5db !important;
-        }
-        /* Buttons in light mode */
-        .light .bg-gradient-to-r {
-            background: linear-gradient(to right, #2563eb, #1d4ed8) !important;
-        }
-        .light .bg-gradient-to-r:hover {
-            background: linear-gradient(to right, #1d4ed8, #1e40af) !important;
-        }
-    </style>
-</head>
-<body class="bg-gradient-to-br from-slate-900 to-black dark:from-slate-900 dark:to-black bg-gray-50 text-white dark:text-white text-gray-800 transition-colors duration-300">
-
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
-        <!-- Sun icon (shown in dark mode) -->
-        <svg id="theme-toggle-dark-icon" class="hidden" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-        </svg>
-        <!-- Moon icon (shown in light mode) -->
-        <svg id="theme-toggle-light-icon" class="hidden" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-        </svg>
-    </button>
-
-    <!-- Update Banner (dismissible) -->
-    <div id="update-banner" class="update-banner hidden">
-        <span>🎉 Save the dates! Takeover Party on 16th May, Main Event on 17th May 2026. Club registration opens in November!</span>
-        <button id="dismiss-banner" aria-label="Dismiss update banner">Got it</button>
-    </div>
-
-    <div id="message-box"></div>
-
-    <div class="main-content">
-        <div class="text-center max-w-5xl mx-auto w-full px-4 sm:px-6">
-            <div class="mb-12">
-                <div class="inline-block px-4 py-2 bg-sky-500/10 border border-sky-500/30 rounded-full mb-6">
-                    <span class="text-sky-400 text-sm font-semibold tracking-wide">MAY 16-17, 2026</span>
-                </div>
-                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white dark:text-white light:text-gray-900 leading-tight tracking-tight">
-                    Isle of Wight<br class="sm:hidden" /> Takeover 2026
-                </h1>
-                <p class="text-lg sm:text-xl md:text-2xl text-slate-300 dark:text-slate-300 light:text-gray-700 mb-6 leading-relaxed max-w-3xl mx-auto font-light">
-                    The countdown begins. Join us for an unforgettable community event.
-                </p>
-                <p class="text-sm sm:text-base text-slate-400 dark:text-slate-400 light:text-gray-600 max-w-2xl mx-auto">
-                    Party on Saturday 16th May • Main Event on Sunday 17th May
-                </p>
-            </div>
-
-            <div id="countdown" role="timer" aria-live="polite" aria-atomic="true" class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 max-w-5xl mx-auto">
-                 <div class="countdown-card bg-slate-800/50 dark:bg-slate-800/50 light:bg-white backdrop-blur-lg p-6 sm:p-8 rounded-2xl text-center shadow-2xl border border-slate-700/50 dark:border-slate-700/50 light:border-gray-200 transition-all duration-300 hover:bg-slate-800/70 dark:hover:bg-slate-800/70 light:hover:bg-gray-50 hover:border-sky-500/50 hover:shadow-sky-500/20">
-                     <div id="days" class="countdown-number">00</div>
-                     <div class="countdown-label">Days</div>
-                 </div>
-                 <div class="countdown-card bg-slate-800/50 dark:bg-slate-800/50 light:bg-white backdrop-blur-lg p-6 sm:p-8 rounded-2xl text-center shadow-2xl border border-slate-700/50 dark:border-slate-700/50 light:border-gray-200 transition-all duration-300 hover:bg-slate-800/70 dark:hover:bg-slate-800/70 light:hover:bg-gray-50 hover:border-sky-500/50 hover:shadow-sky-500/20">
-                     <div id="hours" class="countdown-number">00</div>
-                     <div class="countdown-label">Hours</div>
-                 </div>
-                 <div class="countdown-card bg-slate-800/50 dark:bg-slate-800/50 light:bg-white backdrop-blur-lg p-6 sm:p-8 rounded-2xl text-center shadow-2xl border border-slate-700/50 dark:border-slate-700/50 light:border-gray-200 transition-all duration-300 hover:bg-slate-800/70 dark:hover:bg-slate-800/70 light:hover:bg-gray-50 hover:border-sky-500/50 hover:shadow-sky-500/20">
-                     <div id="minutes" class="countdown-number">00</div>
-                     <div class="countdown-label">Minutes</div>
-                 </div>
-                 <div class="countdown-card bg-slate-800/50 dark:bg-slate-800/50 light:bg-white backdrop-blur-lg p-6 sm:p-8 rounded-2xl text-center shadow-2xl border border-slate-700/50 dark:border-slate-700/50 light:border-gray-200 transition-all duration-300 hover:bg-slate-800/70 dark:hover:bg-slate-800/70 light:hover:bg-gray-50 hover:border-sky-500/50 hover:shadow-sky-500/20">
-                     <div id="seconds" class="countdown-number">00</div>
-                     <div class="countdown-label">Seconds</div>
-                 </div>
-            </div>
-
-            <!-- Event Details Section -->
-            <div class="my-12 md:my-16">
-                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center text-slate-200 dark:text-slate-200 light:text-gray-900">Event Details</h2>
-                <p class="text-slate-400 dark:text-slate-400 light:text-gray-700 text-center mb-8 max-w-2xl mx-auto">
-                    Mark your calendars! Two days of action-packed events at Downend Rd, Newport PO30 2NU. Join the WhatsApp group for updates!
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-4xl mx-auto">
-                    <!-- Date & Time -->
-                    <div class="bg-slate-800/30 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 h-full">
-                        <div class="flex items-start gap-4 h-full">
-                            <div class="bg-sky-500/10 p-3 rounded-lg">
-                                <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-semibold text-slate-200 mb-2">Date & Time</h3>
-                                <p class="text-slate-400 text-sm mb-2">
-                                    <strong class="text-sky-400">Takeover Party:</strong><br/>
-                                    Saturday 16th May 2026<br/>
-                                    <span class="text-slate-500 text-xs">Hosted by Double Trouble Events</span>
-                                </p>
-                                <p class="text-slate-400 text-sm">
-                                    <strong class="text-sky-400">Main Takeover:</strong><br/>
-                                    Sunday 17th May 2026
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Location -->
-                    <div class="bg-slate-800/30 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 h-full">
-                        <div class="flex items-start gap-4 h-full">
-                            <div class="bg-sky-500/10 p-3 rounded-lg">
-                                <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-semibold text-slate-200 mb-2">Location</h3>
-                                <p class="text-slate-400 text-sm">Downend Rd, Newport PO30 2NU</p>
-                                <p class="text-slate-500 text-xs mt-1">Isle of Wight</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Registration -->
-                    <div class="bg-slate-800/30 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 h-full">
-                        <div class="flex items-start gap-4 h-full">
-                            <div class="bg-sky-500/10 p-3 rounded-lg">
-                                <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-semibold text-slate-200 mb-2">Registration & Tickets</h3>
-                                <p class="text-slate-400 text-sm">
-                                    <strong class="text-sky-400">Club Registration:</strong><br/>
-                                    Opens November 2025
-                                </p>
-                                <p class="text-slate-400 text-sm mt-2">
-                                    <strong class="text-sky-400">Ticket Sales:</strong><br/>
-                                    Opens shortly after registration
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- What to Bring -->
-                    <div class="bg-slate-800/30 backdrop-blur-sm p-6 rounded-2xl border border-slate-700/50 hover:border-slate-600/50 transition-all duration-300 h-full">
-                        <div class="flex items-start gap-4 h-full">
-                            <div class="bg-sky-500/10 p-3 rounded-lg">
-                                <svg class="w-6 h-6 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                            </div>
-                            <div class="flex-1">
-                                <h3 class="text-lg font-semibold text-slate-200 mb-2">What to Bring</h3>
-                                <p class="text-slate-400 text-sm">
-                                    Your pride and joy, positive vibes, and good energy! Detailed packing list TBA.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="my-8 md:my-12">
-                 <h2 class="text-2xl md:text-3xl font-bold mb-6 text-slate-200">Event Moments</h2>
-                 <p class="text-slate-400 text-sm md:text-base mb-6">
-                     Photos from IOW Takeover 2025 — relive the memories!
-                 </p>
-                 <div class="swiper-container">
-                     <div class="swiper-wrapper">
-                         <div class="swiper-slide">
-                             <img src="images/slideshow/IMG_5930.JPG" alt="IOW Takeover 2025 - Photo 1" loading="lazy">
-                         </div>
-                         <div class="swiper-slide">
-                             <img src="images/slideshow/IMG_8509.JPG" alt="IOW Takeover 2025 - Photo 2" loading="lazy">
-                         </div>
-                         <div class="swiper-slide">
-                             <img src="images/slideshow/IMG_8568.JPG" alt="IOW Takeover 2025 - Photo 3" loading="lazy">
-                         </div>
-                         <div class="swiper-slide">
-                             <img src="images/slideshow/fit_2560.jpg" alt="IOW Takeover 2025 - Photo 4" loading="lazy">
-                         </div>
-                         <div class="swiper-slide">
-                             <img src="images/slideshow/fit_2560 (1).jpg" alt="IOW Takeover 2025 - Photo 5" loading="lazy">
-                         </div>
-                         <div class="swiper-slide">
-                             <img src="images/slideshow/fit_2560 (2).jpg" alt="IOW Takeover 2025 - Photo 6" loading="lazy">
-                         </div>
-                     </div>
-                     <div class="swiper-pagination mt-4"></div>
-                 </div>
-            </div>
-
-            <!-- Map Section -->
-            <div class="my-12 md:my-16">
-                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-center text-slate-200">The Island</h2>
-                <p class="text-slate-400 text-center mb-8 max-w-2xl mx-auto">
-                    Isle of Wight — where memories are made. Join us at Downend Rd, Newport PO30 2NU!
-                </p>
-                <div class="max-w-4xl mx-auto">
-                    <div class="relative group cursor-pointer" onclick="window.open('https://www.google.com/maps/search/?api=1&query=Downend+Rd%2C+Newport+PO30+2NU', '_blank')">
-                        <div id="map" class="w-full h-96 rounded-xl shadow-2xl border-2 border-slate-700/50 overflow-hidden pointer-events-none"></div>
-                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20 rounded-xl pointer-events-none">
-                            <div class="bg-sky-500 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-2">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                                <span class="font-semibold">Open in Maps</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <p id="event-date" class="mt-8 md:mt-10 text-slate-400 text-sm md:text-base">
-                Main Event: Sunday 17th May 2026 • Party: Saturday 16th May 2026
-            </p>
-
-            <div class="mt-16 mb-12">
-                <a href="https://chat.whatsapp.com/LkC7T6mxJ4rGYkhIJNMwgr" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-sky-500 to-sky-600 hover:from-sky-600 hover:to-sky-700 text-white font-semibold py-4 px-8 rounded-2xl shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-sky-300 focus:ring-offset-2 focus:ring-offset-black text-lg">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                    </svg>
-                    Join WhatsApp Group
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Sticky WhatsApp Button (Mobile Only) -->
-    <a href="https://chat.whatsapp.com/LkC7T6mxJ4rGYkhIJNMwgr" target="_blank" rel="noopener noreferrer"
-        class="md:hidden fixed bottom-6 right-6 z-50 bg-sky-500 hover:bg-sky-600 text-white font-semibold py-3 px-6 rounded-full shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-110 active:scale-95 flex items-center gap-2">
-        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-        <span class="text-sm">Join Group</span>
-    </a>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
-        </svg>
-    </button>
-
-    <footer>
-        <div class="footer-content">
-            <span class="footer-item">
-                Made with
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" title="GitHub" class="inline-flex">
-                    <!-- GitHub logo - white for dark mode, black for light mode -->
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/github.svg" alt="GitHub Logo" class="dark-logo">
-                </a>
-            </span>
-
-            <span class="footer-separator">|</span>
-
-            <span class="footer-item">
-                Powered by
-                <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer" title="Cloudflare" class="inline-flex">
-                    <!-- Cloudflare logo - inverted for light mode -->
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/cloudflare.svg" alt="Cloudflare Logo" class="dark-logo">
-                </a>
-            </span>
-
-            <span class="footer-separator">|</span> <a href="privy.html" class="footer-item">Privacy</a>
-        </div>
-
-        <div class="turnstile-container">
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAABD-MSaX-kkjRtpH" data-theme="dark"></div>
-        </div>
-    </footer>
-
+    <!-- Apply the saved or system theme before first paint to avoid a flash -->
     <script>
-        // Theme initialization - runs immediately to prevent flash
-        (function() {
-            // Check if user has a saved preference
-            const savedTheme = localStorage.getItem('theme');
-
-            let theme;
-            if (savedTheme) {
-                // User has explicitly chosen a theme - use it
-                theme = savedTheme;
-            } else {
-                // No saved preference - use system preference
-                // Check if system prefers dark mode
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                theme = prefersDark ? 'dark' : 'light';
+        (function () {
+            var theme = null;
+            try { theme = localStorage.getItem('theme'); } catch (e) {}
+            if (theme !== 'light' && theme !== 'dark') {
+                theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
             }
-
-            if (theme === 'light') {
-                document.documentElement.classList.add('light');
-                document.body.classList.add('light');
-            }
+            document.documentElement.setAttribute('data-theme', theme);
         })();
     </script>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
-    <script>
-        // --- Configuration ---
-        // Main Takeover Event: Sunday 17th May 2026
-        const targetDate = new Date('2026-05-17T10:00:00+01:00').getTime(); // Target date in BST (British Summer Time, UTC+1)
-        const confirmed = true; // Date is now confirmed!
-
-        // --- DOM Elements ---
-        const daysEl = document.getElementById('days');
-        const hoursEl = document.getElementById('hours');
-        const minutesEl = document.getElementById('minutes');
-        const secondsEl = document.getElementById('seconds');
-        const countdownEl = document.getElementById('countdown');
-        const eventDateEl = document.getElementById('event-date');
-        const messageBox = document.getElementById('message-box');
-
-        // --- Message Function ---
-        function showMessage(message) {
-            if (!messageBox) return;
-            messageBox.textContent = message;
-            messageBox.classList.add('show');
-            // Automatically hide after 5 seconds
-            setTimeout(() => {
-                messageBox.classList.remove('show');
-            }, 5000);
+    <style>
+        /* ---------- Design tokens ---------- */
+        :root {
+            --accent: #ff6a2b;
+            --accent-2: #ff3d6e;
+            --accent-grad: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --maxw: 1160px;
+            --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+            --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        }
+        :root[data-theme="dark"] {
+            --bg: #0b0b0f;
+            --bg-alt: #121218;
+            --surface: #17171f;
+            --surface-2: #1f1f29;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-strong: rgba(255, 255, 255, 0.16);
+            --text: #f5f5f7;
+            --text-muted: #a1a1ad;
+            --text-faint: #71717d;
+            --nav-bg: rgba(11, 11, 15, 0.72);
+            --shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.7);
+            color-scheme: dark;
+        }
+        :root[data-theme="light"] {
+            --bg: #fafaf9;
+            --bg-alt: #f1f0ee;
+            --surface: #ffffff;
+            --surface-2: #f5f4f2;
+            --border: rgba(15, 15, 20, 0.08);
+            --border-strong: rgba(15, 15, 20, 0.16);
+            --text: #121216;
+            --text-muted: #55555f;
+            --text-faint: #7a7a84;
+            --nav-bg: rgba(250, 250, 249, 0.8);
+            --shadow: 0 20px 45px -25px rgba(20, 20, 30, 0.35);
+            --accent: #e5511a;
+            --accent-2: #e02a5c;
+            color-scheme: light;
         }
 
-        // --- Countdown Logic ---
-        let countdownInterval; // Declare interval variable
+        /* ---------- Base ---------- */
+        *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; background: var(--bg); }
+        body {
+            margin: 0;
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        img { max-width: 100%; display: block; }
+        a { color: inherit; }
+        h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; margin: 0; letter-spacing: -0.02em; }
+        p { margin: 0; }
+        :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+        .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+        .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { transition: none !important; animation: none !important; }
+        }
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 14px 24px; border-radius: 999px;
+            font-weight: 600; font-size: 1rem; text-decoration: none; white-space: nowrap;
+            border: 1px solid transparent; cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+        .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+        .btn-primary { background: var(--accent-grad); color: #fff; box-shadow: 0 10px 30px -10px var(--accent); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -10px var(--accent); }
+        .btn-ghost { background: rgba(255, 255, 255, 0.1); color: #fff; border-color: rgba(255, 255, 255, 0.25); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+        .btn-ghost:hover { background: rgba(255, 255, 255, 0.18); }
+        .btn-outline { background: transparent; color: var(--text); border-color: var(--border-strong); }
+        .btn-outline:hover { background: var(--surface-2); }
+        .btn-sm { padding: 9px 16px; font-size: 0.9rem; }
 
-            // Check if the countdown has finished
-            if (distance < 0) {
-                clearInterval(countdownInterval); // Stop the interval
-                if (countdownEl) {
-                    // Display different message based on whether date is confirmed
-                    const message = confirmed
-                        ? "The Takeover is happening now!"
-                        : "Expected takeover date has arrived or passed — check for updates!";
-                    countdownEl.innerHTML = `
-                        <div class="col-span-2 sm:col-span-4 text-center bg-green-600/30 backdrop-blur-sm p-6 rounded-lg shadow-lg border border-green-400/50">
-                            <div class="text-3xl md:text-4xl font-bold text-green-300">${message}</div>
+        /* ---------- Nav ---------- */
+        .nav {
+            position: fixed; inset: 0 0 auto 0; z-index: 100;
+            padding-top: env(safe-area-inset-top);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+        .nav.scrolled {
+            background: var(--nav-bg);
+            backdrop-filter: saturate(180%) blur(16px); -webkit-backdrop-filter: saturate(180%) blur(16px);
+            border-bottom-color: var(--border);
+        }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 16px; }
+        .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; text-decoration: none; color: #fff; letter-spacing: -0.01em; }
+        .nav.scrolled .brand { color: var(--text); }
+        .brand img { width: 32px; height: 32px; }
+        .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; margin: 0; padding: 0; }
+        .nav-links a { text-decoration: none; font-size: 0.95rem; font-weight: 500; color: rgba(255, 255, 255, 0.82); transition: color 0.2s; }
+        .nav.scrolled .nav-links a { color: var(--text-muted); }
+        .nav-links a:hover, .nav.scrolled .nav-links a:hover { color: var(--accent); }
+        .nav-actions { display: flex; align-items: center; gap: 10px; }
+        .icon-btn {
+            width: 42px; height: 42px; border-radius: 999px; display: grid; place-items: center;
+            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; cursor: pointer;
+            transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+        }
+        .nav.scrolled .icon-btn { background: var(--surface); border-color: var(--border-strong); color: var(--text); }
+        .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .icon-btn svg { width: 20px; height: 20px; }
+        [data-theme="dark"] .icon-moon, [data-theme="light"] .icon-sun { display: none; }
+        @media (max-width: 860px) { .nav-links { display: none; } }
+        @media (max-width: 480px) { .nav-actions .btn { display: none; } }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            position: relative; min-height: 100vh; min-height: 100svh;
+            display: flex; align-items: center; color: #fff; overflow: hidden; isolation: isolate;
+            padding: calc(110px + env(safe-area-inset-top)) 0 80px;
+        }
+        .hero-bg { position: absolute; inset: 0; z-index: -2; }
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; transform: scale(1.04); }
+        .hero::after {
+            content: ''; position: absolute; inset: 0; z-index: -1;
+            background:
+                linear-gradient(90deg, rgba(8, 8, 12, 0.75) 0%, rgba(8, 8, 12, 0.35) 60%, rgba(8, 8, 12, 0.15) 100%),
+                linear-gradient(180deg, rgba(8, 8, 12, 0.5) 0%, rgba(8, 8, 12, 0.2) 35%, rgba(8, 8, 12, 0.9) 100%),
+                radial-gradient(ellipse at 20% 30%, rgba(255, 106, 43, 0.22), transparent 55%);
+        }
+        .hero-content { max-width: 820px; }
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 8px 16px; border-radius: 999px;
+            background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+        }
+        .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(255, 106, 43, 0.3); }
+        .hero h1 { font-size: clamp(2.8rem, 9vw, 6.2rem); font-weight: 700; margin: 22px 0 18px; letter-spacing: -0.035em; }
+        .hero h1 .grad { background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .hero-sub { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: rgba(255, 255, 255, 0.85); max-width: 620px; }
+        .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+
+        /* Countdown */
+        .countdown { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 44px; max-width: 620px; }
+        .cd-unit {
+            background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16);
+            backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+            border-radius: var(--radius-sm); padding: 16px 8px 12px; text-align: center;
+        }
+        .cd-num { font-family: var(--font-display); font-size: clamp(1.8rem, 6vw, 3rem); font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+        .cd-label { margin-top: 8px; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); }
+        .countdown-done {
+            grid-column: 1 / -1; padding: 22px; text-align: center; border-radius: var(--radius-sm);
+            background: var(--accent-grad); font-family: var(--font-display); font-size: 1.6rem; font-weight: 700;
+        }
+
+        /* ---------- Sections ---------- */
+        section { padding: 96px 0; }
+        .section-alt { background: var(--bg-alt); }
+        .section-head { max-width: 640px; margin-bottom: 48px; }
+        .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+        .kicker { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: block; }
+        .section-head h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; }
+        .section-head p { margin-top: 14px; color: var(--text-muted); font-size: 1.08rem; }
+        @media (max-width: 640px) { section { padding: 72px 0; } .section-head { margin-bottom: 36px; } }
+
+        /* Weekend schedule */
+        .days { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+        @media (max-width: 760px) { .days { grid-template-columns: 1fr; } }
+        .day-card {
+            position: relative; overflow: hidden;
+            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 32px; box-shadow: var(--shadow);
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+        .day-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+        .day-card::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--accent-grad); }
+        .day-date { display: flex; align-items: baseline; gap: 14px; }
+        .day-num { font-family: var(--font-display); font-size: 4rem; font-weight: 700; line-height: 1; letter-spacing: -0.04em; }
+        .day-meta { display: flex; flex-direction: column; }
+        .day-dow { font-weight: 600; font-size: 1.05rem; }
+        .day-month { color: var(--text-muted); font-size: 0.95rem; }
+        .day-card h3 { font-size: 1.6rem; margin-top: 22px; }
+        .day-card p { margin-top: 10px; color: var(--text-muted); }
+        .tag { display: inline-block; margin-top: 18px; padding: 5px 12px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; background: var(--surface-2); color: var(--text-muted); border: 1px solid var(--border); }
+        .tag-hot { background: rgba(255, 106, 43, 0.12); color: var(--accent); border-color: rgba(255, 106, 43, 0.3); }
+
+        /* Info grid */
+        .info-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+        @media (max-width: 1000px) { .info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 560px) { .info-grid { grid-template-columns: 1fr; } }
+        .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; }
+        .info-icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: rgba(255, 106, 43, 0.12); color: var(--accent); margin-bottom: 18px; }
+        .info-icon svg { width: 22px; height: 22px; }
+        .info-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+        .info-card p { color: var(--text-muted); font-size: 0.95rem; }
+        .info-card .muted { color: var(--text-faint); font-size: 0.85rem; margin-top: 8px; }
+        .info-card a.link { margin-top: auto; padding-top: 14px; color: var(--accent); font-weight: 600; font-size: 0.92rem; text-decoration: none; }
+        .info-card a.link:hover { text-decoration: underline; }
+
+        /* Gallery */
+        .gallery { columns: 3; column-gap: 16px; }
+        @media (max-width: 860px) { .gallery { columns: 2; column-gap: 10px; } .gallery .gallery-item { margin-bottom: 10px; } }
+        .gallery-item {
+            break-inside: avoid; margin: 0 0 16px; position: relative; overflow: hidden;
+            border-radius: var(--radius-sm); cursor: zoom-in; border: 0; padding: 0; width: 100%;
+            background: var(--surface-2); display: block;
+        }
+        .gallery-item img { width: 100%; height: auto; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.04); }
+        .gallery-note { margin-top: 20px; color: var(--text-faint); font-size: 0.9rem; text-align: center; }
+
+        /* Lightbox */
+        .lightbox { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; }
+        .lightbox::backdrop { background: rgba(5, 5, 8, 0.92); }
+        .lightbox-inner { width: 100%; height: 100%; display: grid; place-items: center; padding: 60px 16px; }
+        .lightbox img { max-width: 100%; max-height: calc(100vh - 120px); border-radius: var(--radius-sm); object-fit: contain; }
+        .lb-btn { position: fixed; width: 48px; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.25); background: rgba(255, 255, 255, 0.1); color: #fff; cursor: pointer; display: grid; place-items: center; }
+        .lb-btn:hover { background: rgba(255, 255, 255, 0.2); }
+        .lb-btn svg { width: 22px; height: 22px; }
+        .lb-close { top: 16px; right: 16px; }
+        .lb-prev { left: 16px; top: 50%; transform: translateY(-50%); }
+        .lb-next { right: 16px; top: 50%; transform: translateY(-50%); }
+
+        /* Location */
+        .location { display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px; align-items: stretch; }
+        @media (max-width: 860px) { .location { grid-template-columns: 1fr; } }
+        .location-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; display: flex; flex-direction: column; gap: 16px; }
+        .location-card h3 { font-size: 1.5rem; }
+        .location-card p { color: var(--text-muted); }
+        .location-card .address { font-weight: 600; color: var(--text); }
+        .location-card .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+        #map { min-height: 380px; border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; z-index: 0; }
+        [data-theme="dark"] #map .leaflet-tile-pane { filter: brightness(0.75) contrast(1.1) saturate(0.8); }
+
+        /* CTA band */
+        .cta-band {
+            position: relative; overflow: hidden; border-radius: 28px; padding: 64px 32px; text-align: center; color: #fff;
+            background: var(--accent-grad);
+        }
+        .cta-band::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.25), transparent 50%); pointer-events: none; }
+        .cta-band h2 { font-size: clamp(2rem, 5vw, 3rem); position: relative; }
+        .cta-band p { margin: 14px auto 0; max-width: 520px; color: rgba(255, 255, 255, 0.9); font-size: 1.08rem; position: relative; }
+        .cta-band .btn { margin-top: 28px; background: #fff; color: #111; position: relative; }
+        .cta-band .btn:hover { transform: translateY(-2px); }
+
+        /* Footer */
+        footer { border-top: 1px solid var(--border); padding: 40px 0 calc(40px + env(safe-area-inset-bottom)); color: var(--text-faint); font-size: 0.9rem; }
+        .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+        .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; }
+        .footer-links a:hover { color: var(--accent); }
+        .turnstile-container { display: flex; justify-content: center; margin-top: 24px; }
+
+        /* Mobile sticky WhatsApp button */
+        .fab {
+            position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 90;
+            display: none; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px;
+            background: var(--accent-grad); color: #fff; font-weight: 600; text-decoration: none; font-size: 0.92rem;
+            box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.5);
+            opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity 0.3s, transform 0.3s;
+        }
+        .fab svg { width: 20px; height: 20px; }
+        .fab.visible { opacity: 1; transform: none; pointer-events: auto; }
+        @media (max-width: 760px) { .fab { display: inline-flex; } }
+
+        /* Reveal on scroll */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+        .no-js .reveal { opacity: 1; transform: none; }
+    </style>
+</head>
+<body>
+    <a href="#main" class="visually-hidden">Skip to content</a>
+
+    <!-- ===== Navigation ===== -->
+    <header class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="#top" class="brand" aria-label="IOW Takeover home">
+                <img src="images/favicon.svg" alt="" width="32" height="32">
+                <span>IOW Takeover</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#weekend">The Weekend</a></li>
+                <li><a href="#info">Info</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#location">Location</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch between light and dark mode">
+                    <svg class="icon-sun" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+                    <svg class="icon-moon" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+                </button>
+                <a class="btn btn-primary btn-sm js-whatsapp" href="https://chat.whatsapp.com/LkC7T6mxJ4rGYkhIJNMwgr" target="_blank" rel="noopener noreferrer">Join the group</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- ===== Hero ===== -->
+        <section class="hero" id="top" aria-labelledby="hero-title">
+            <div class="hero-bg">
+                <img src="images/iow-2025/bunker-cars.jpg" alt="" fetchpriority="high">
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <span class="eyebrow"><span class="dot" aria-hidden="true"></span>15–16 May 2027 · Isle of Wight</span>
+                    <h1 id="hero-title">Isle of Wight<br><span class="grad">Takeover 2027</span></h1>
+                    <p class="hero-sub">Two days of cars, community and island roads. The Takeover Party kicks off on Saturday, with the main Show Day on Sunday.</p>
+
+                    <div id="countdown" class="countdown" role="timer" aria-live="off" aria-label="Countdown to Show Day">
+                        <div class="cd-unit"><div class="cd-num" id="days">--</div><div class="cd-label">Days</div></div>
+                        <div class="cd-unit"><div class="cd-num" id="hours">--</div><div class="cd-label">Hours</div></div>
+                        <div class="cd-unit"><div class="cd-num" id="minutes">--</div><div class="cd-label">Mins</div></div>
+                        <div class="cd-unit"><div class="cd-num" id="seconds">--</div><div class="cd-label">Secs</div></div>
+                    </div>
+
+                    <div class="hero-cta">
+                        <a class="btn btn-primary js-whatsapp" href="https://chat.whatsapp.com/LkC7T6mxJ4rGYkhIJNMwgr" target="_blank" rel="noopener noreferrer">
+                            <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            Join the WhatsApp group
+                        </a>
+                        <a class="btn btn-ghost" href="#weekend">See the weekend</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== The Weekend ===== -->
+        <section id="weekend" aria-labelledby="weekend-title">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="kicker">The Weekend</span>
+                    <h2 id="weekend-title">Two days. One island.</h2>
+                    <p>Dates are confirmed for 2027. Lock them in and start planning the trip over.</p>
+                </div>
+                <div class="days">
+                    <article class="day-card reveal">
+                        <div class="day-date">
+                            <span class="day-num">15</span>
+                            <span class="day-meta"><span class="day-dow">Saturday</span><span class="day-month">May 2027</span></span>
                         </div>
-                    `;
-                }
-                if (eventDateEl && confirmed) {
-                    // Update the event date text only if confirmed
-                    eventDateEl.textContent = "Event Started: Sunday 17th May 2026, 10:00 AM BST";
-                }
-                // Show a notification message only once when it starts
-                if (!sessionStorage.getItem('eventStartedMessageShown')) {
-                    showMessage(confirmed ? "The Isle of Wight Takeover has started!" : "Check for updated event dates!");
-                    sessionStorage.setItem('eventStartedMessageShown', 'true'); // Prevent showing again on refresh
-                }
-                return; // Exit the function
+                        <h3>Takeover Party</h3>
+                        <p>Arrive on the island, meet the crew and get the weekend started the night before the show.</p>
+                        <span class="tag">Evening · Details TBA</span>
+                    </article>
+                    <article class="day-card reveal">
+                        <div class="day-date">
+                            <span class="day-num">16</span>
+                            <span class="day-meta"><span class="day-dow">Sunday</span><span class="day-month">May 2027</span></span>
+                        </div>
+                        <h3>Show Day</h3>
+                        <p>The main event. Clubs, builds and displays from across the UK, all in one place.</p>
+                        <span class="tag tag-hot">Main event</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Info ===== -->
+        <section id="info" class="section-alt" aria-labelledby="info-title">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="kicker">Good to know</span>
+                    <h2 id="info-title">Everything you need</h2>
+                    <p>More details will land in the WhatsApp group first as they're confirmed.</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card reveal">
+                        <div class="info-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+                        <h3>Venue</h3>
+                        <p>2027 venue to be confirmed.</p>
+                        <p class="muted">2026 was held at the County Showground, Downend Rd, Newport PO30 2NU.</p>
+                        <a class="link" href="#location">View map →</a>
+                    </div>
+                    <div class="info-card reveal">
+                        <div class="info-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z"/></svg></div>
+                        <h3>Tickets &amp; clubs</h3>
+                        <p>Tickets and club registration go through the official organisers.</p>
+                        <a class="link" href="https://www.iowtakeover.co.uk/" target="_blank" rel="noopener noreferrer">Official site →</a>
+                    </div>
+                    <div class="info-card reveal">
+                        <div class="info-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17h18M5 17l1.5-6h11L19 17M7 11V8a1 1 0 011-1h8a1 1 0 011 1v3M3 21c1.5 0 1.5-1 3-1s1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1"/></svg></div>
+                        <h3>Getting there</h3>
+                        <p>Car ferries run from Portsmouth, Lymington and Southampton. May weekends fill up, so book your crossing early.</p>
+                    </div>
+                    <div class="info-card reveal">
+                        <div class="info-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
+                        <h3>What to bring</h3>
+                        <p>Your pride and joy, a full tank, a camera and good vibes. A detailed list will follow nearer the time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Gallery ===== -->
+        <section id="gallery" aria-labelledby="gallery-title">
+            <div class="container">
+                <div class="section-head center reveal">
+                    <span class="kicker">Gallery</span>
+                    <h2 id="gallery-title">Takeover moments</h2>
+                    <p>A look back at previous Takeovers. 2027 photos coming after the event.</p>
+                </div>
+                <!-- Photos are listed in the PHOTOS array in the script at the bottom of this page -->
+                <div class="gallery" id="gallery-grid"></div>
+            </div>
+        </section>
+
+        <!-- ===== Location ===== -->
+        <section id="location" class="section-alt" aria-labelledby="location-title">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="kicker">Location</span>
+                    <h2 id="location-title">The island</h2>
+                    <p>The 2027 venue hasn't been announced yet. Here's where 2026 took place.</p>
+                </div>
+                <div class="location">
+                    <div class="location-card reveal">
+                        <span class="tag tag-hot" style="margin-top:0;align-self:flex-start">2027 venue TBC</span>
+                        <h3>County Showground</h3>
+                        <p class="address">Downend Rd, Newport<br>Isle of Wight PO30 2NU</p>
+                        <p>Right in the middle of the island, a short drive from the Fishbourne, East Cowes and Yarmouth ferry terminals.</p>
+                        <div class="actions">
+                            <a class="btn btn-outline btn-sm" href="https://www.google.com/maps/search/?api=1&amp;query=Downend+Rd%2C+Newport+PO30+2NU" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                        </div>
+                    </div>
+                    <div id="map" class="reveal" role="img" aria-label="Map showing Downend Rd, Newport, Isle of Wight"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section aria-labelledby="cta-title">
+            <div class="container">
+                <div class="cta-band reveal">
+                    <h2 id="cta-title">Don't miss a thing</h2>
+                    <p>Venue news, ticket drops and meet-up plans go out in the WhatsApp group first.</p>
+                    <a class="btn js-whatsapp" href="https://chat.whatsapp.com/LkC7T6mxJ4rGYkhIJNMwgr" target="_blank" rel="noopener noreferrer">Join the WhatsApp group</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <span>© <span id="year">2027</span> IOW Takeover community</span>
+                <nav class="footer-links" aria-label="Footer">
+                    <a href="https://www.iowtakeover.co.uk/" target="_blank" rel="noopener noreferrer">Official site</a>
+                    <a href="privy.html">Privacy</a>
+                    <a href="#top">Back to top ↑</a>
+                </nav>
+            </div>
+            <div class="turnstile-container">
+                <div class="cf-turnstile" id="turnstile" data-sitekey="0x4AAAAAABD-MSaX-kkjRtpH" data-theme="auto"></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky WhatsApp button (mobile only, appears after scrolling) -->
+    <a id="fab" class="fab js-whatsapp" href="https://chat.whatsapp.com/LkC7T6mxJ4rGYkhIJNMwgr" target="_blank" rel="noopener noreferrer">
+        <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0012.05 0zm0 21.785h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
+        Join group
+    </a>
+
+    <!-- Photo lightbox -->
+    <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+        <div class="lightbox-inner">
+            <img id="lightbox-img" src="data:," alt="">
+        </div>
+        <button class="lb-btn lb-close" id="lb-close" type="button" aria-label="Close"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg></button>
+        <button class="lb-btn lb-prev" id="lb-prev" type="button" aria-label="Previous photo"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg></button>
+        <button class="lb-btn lb-next" id="lb-next" type="button" aria-label="Next photo"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></button>
+    </dialog>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // ================= SITE CONFIG =================
+        // Show Day start time (BST is UTC+1). The countdown runs to this.
+        const EVENT_START = '2027-05-16T10:00:00+01:00';
+
+        // Gallery photos, shown in this order.
+        // To add 2027 photos: put the files in images/iow-2027/ and add a line
+        // like { src: 'images/iow-2027/iow2027-1.jpg', alt: 'Describe the photo' },
+        const PHOTOS = [
+            { src: 'images/iow-2025/bunker-cars.jpg',     alt: 'Cars parked inside an old clifftop gun battery overlooking the sea' },
+            { src: 'images/iow-2025/clifftop-lineup.jpg', alt: 'A line of cars on a clifftop car park with the coast behind' },
+            { src: 'images/iow-2025/crew-selfie.jpg',     alt: 'Group selfie of the crew on the seafront' },
+            { src: 'images/iow-2025/sunset-beach.jpg',    alt: 'Sunset over the sea from the cliffs' },
+            { src: 'images/iow-2025/polaroids.jpg',       alt: 'Polaroid photos from the Takeover party on a wooden table' },
+            { src: 'images/iow-2025/sunset-couple.jpg',   alt: 'Two friends on the cliffs at sunset' },
+        ];
+
+        // Map pin (2026 venue until the 2027 venue is announced)
+        const VENUE = { lat: 50.7016, lng: -1.2928, name: 'County Showground', address: 'Downend Rd, Newport PO30 2NU' };
+        // ===============================================
+
+        (function () {
+            const root = document.documentElement;
+
+            // --- Theme toggle ---
+            const toggle = document.getElementById('theme-toggle');
+            toggle.addEventListener('click', function () {
+                const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                root.setAttribute('data-theme', next);
+                try { localStorage.setItem('theme', next); } catch (e) {}
+            });
+
+            // --- Nav background + mobile button on scroll ---
+            const nav = document.getElementById('nav');
+            const fab = document.getElementById('fab');
+            function onScroll() {
+                const y = window.scrollY;
+                nav.classList.toggle('scrolled', y > 40);
+                fab.classList.toggle('visible', y > window.innerHeight * 0.6);
             }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
 
-            // Calculate time units
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // --- Countdown ---
+            const target = new Date(EVENT_START).getTime();
+            const els = ['days', 'hours', 'minutes', 'seconds'].map(id => document.getElementById(id));
+            const countdownEl = document.getElementById('countdown');
+            let timer;
+            function tick() {
+                const diff = target - Date.now();
+                if (diff <= 0) {
+                    clearInterval(timer);
+                    const twoDays = 2 * 24 * 60 * 60 * 1000;
+                    countdownEl.innerHTML = '<div class="countdown-done">' +
+                        (diff > -twoDays ? "It's Takeover weekend! 🏁" : 'Thanks for coming! See you next year.') +
+                        '</div>';
+                    return;
+                }
+                const parts = [
+                    Math.floor(diff / 86400000),
+                    Math.floor(diff / 3600000) % 24,
+                    Math.floor(diff / 60000) % 60,
+                    Math.floor(diff / 1000) % 60,
+                ];
+                parts.forEach((v, i) => { els[i].textContent = String(v).padStart(2, '0'); });
+            }
+            tick();
+            timer = setInterval(tick, 1000);
 
-            // Update DOM elements if they exist
-            if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
-            if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
-            if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
-            if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
-        }
+            // --- Gallery + lightbox ---
+            const grid = document.getElementById('gallery-grid');
+            PHOTOS.forEach(function (photo, i) {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'gallery-item reveal';
+                btn.setAttribute('aria-label', 'View photo: ' + photo.alt);
+                const img = document.createElement('img');
+                img.src = photo.src;
+                img.alt = photo.alt;
+                img.loading = i < 3 ? 'eager' : 'lazy';
+                img.decoding = 'async';
+                btn.appendChild(img);
+                btn.addEventListener('click', function () { openLightbox(i); });
+                grid.appendChild(btn);
+            });
 
-        // --- Update Banner Management ---
-        function initUpdateBanner() {
-            const banner = document.getElementById('update-banner');
-            const dismissBtn = document.getElementById('dismiss-banner');
-            const bannerDismissed = localStorage.getItem('iow2026-banner-dismissed-may');
+            const lb = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lightbox-img');
+            let current = 0;
+            function show(i) {
+                current = (i + PHOTOS.length) % PHOTOS.length;
+                lbImg.src = PHOTOS[current].src;
+                lbImg.alt = PHOTOS[current].alt;
+            }
+            function openLightbox(i) {
+                show(i);
+                if (typeof lb.showModal === 'function') lb.showModal();
+                else window.open(PHOTOS[i].src, '_blank');
+            }
+            document.getElementById('lb-close').addEventListener('click', () => lb.close());
+            document.getElementById('lb-prev').addEventListener('click', () => show(current - 1));
+            document.getElementById('lb-next').addEventListener('click', () => show(current + 1));
+            lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lightbox-inner')) lb.close(); });
+            lb.addEventListener('keydown', e => {
+                if (e.key === 'ArrowLeft') show(current - 1);
+                if (e.key === 'ArrowRight') show(current + 1);
+            });
 
-            // Show banner if not previously dismissed and add body class for spacing
-            if (!bannerDismissed && banner) {
-                banner.classList.remove('hidden');
-                document.body.classList.add('banner-visible');
+            // --- Reveal on scroll ---
+            const revealEls = document.querySelectorAll('.reveal');
+            if ('IntersectionObserver' in window) {
+                const io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+                    });
+                }, { rootMargin: '0px 0px -8% 0px' });
+                revealEls.forEach(el => io.observe(el));
             } else {
-                // Ensure banner is hidden if previously dismissed
-                if (banner) {
-                    banner.classList.add('hidden');
-                }
-                document.body.classList.remove('banner-visible');
+                revealEls.forEach(el => el.classList.add('in'));
             }
 
-            // Handle dismiss button
-            if (dismissBtn) {
-                dismissBtn.addEventListener('click', function() {
-                    if (banner) {
-                        banner.classList.add('hidden');
-                        document.body.classList.remove('banner-visible');
-                        localStorage.setItem('iow2026-banner-dismissed-may', 'true');
-                    }
-                });
-            }
-        }
+            // --- Footer year ---
+            document.getElementById('year').textContent = Math.max(new Date().getFullYear(), 2026);
 
-        // --- Swiper Initialization ---
-        // Ensure Swiper is initialized after the DOM is fully loaded
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initialize update banner
-            initUpdateBanner();
+            // --- Map ---
             try {
-                const swiper = new Swiper('.swiper-container', {
-                    // Optional parameters
-                    loop: true, // Enable continuous loop mode
-                    centeredSlides: true, // Center the active slide
-                    slidesPerView: 1.15, // Show partial slides on sides (responsive)
-                    spaceBetween: 20, // Gap between slides
-                    autoplay: {
-                        delay: 4000, // Autoplay delay in milliseconds
-                        disableOnInteraction: false, // Autoplay continues even after user interaction
-                    },
-                    // Responsive breakpoints
-                    breakpoints: {
-                        640: {
-                            slidesPerView: 1.2,
-                            spaceBetween: 20,
-                        },
-                        768: {
-                            slidesPerView: 1.25,
-                            spaceBetween: 30,
-                        },
-                    },
-                    // Pagination
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true, // Allow clicking on pagination bullets
-                    },
-                    // Accessibility features
-                    a11y: {
-                        prevSlideMessage: 'Previous slide',
-                        nextSlideMessage: 'Next slide',
-                    },
-                });
-            } catch (error) {
-                console.error("Failed to initialize Swiper:", error);
-                // Optionally show an error message to the user
-                // showMessage("Error loading image slideshow.");
-            }
-
-            // --- Map Initialization ---
-            try {
-                const map = L.map('map', {
-                    center: [50.7016, -1.2928], // Downend Rd, Newport PO30 2NU coordinates
-                    zoom: 14,
-                    scrollWheelZoom: false, // Disable scroll zoom for better UX
-                    zoomControl: true
-                });
-
-                // Add OpenStreetMap tiles
+                const map = L.map('map', { center: [VENUE.lat, VENUE.lng], zoom: 13, scrollWheelZoom: false });
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
                     maxZoom: 19
                 }).addTo(map);
-
-                // Add a marker for the event location with a custom popup
-                const marker = L.marker([50.7016, -1.2928]).addTo(map);
-                marker.bindPopup('<div style="text-align: center;"><strong style="font-size: 16px;">Isle of Wight Takeover 2026</strong><br/><span style="color: #64748b;">Downend Rd, Newport</span><br/><span style="color: #94a3b8; font-size: 12px;">PO30 2NU</span></div>');
-
-                // Make map responsive - invalidate size after a short delay
-                setTimeout(() => {
-                    map.invalidateSize();
-                }, 100);
-            } catch (error) {
-                console.error("Failed to initialize map:", error);
+                L.marker([VENUE.lat, VENUE.lng]).addTo(map)
+                    .bindPopup('<strong>' + VENUE.name + '</strong><br>' + VENUE.address);
+                setTimeout(() => map.invalidateSize(), 200);
+            } catch (err) {
+                console.error('Failed to initialise map:', err);
             }
-
-            // --- Countdown Initialization ---
-            updateCountdown(); // Initial countdown update immediately on load
-            countdownInterval = setInterval(updateCountdown, 1000); // Start the interval timer
-
-            // --- Back to Top Button ---
-            const backToTopBtn = document.getElementById('back-to-top');
-
-            // Show/hide button based on scroll position
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTopBtn.classList.add('visible');
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                }
-            });
-
-            // Scroll to top when clicked
-            backToTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // --- Theme Toggle ---
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
-            // Set initial icon visibility
-            function updateThemeIcons() {
-                const isLight = document.documentElement.classList.contains('light') ||
-                               document.body.classList.contains('light');
-                if (isLight) {
-                    themeToggleLightIcon.classList.remove('hidden');
-                    themeToggleDarkIcon.classList.add('hidden');
-                } else {
-                    themeToggleDarkIcon.classList.remove('hidden');
-                    themeToggleLightIcon.classList.add('hidden');
-                }
-            }
-
-            updateThemeIcons();
-
-            // Toggle theme on button click
-            themeToggleBtn.addEventListener('click', function() {
-                const html = document.documentElement;
-                const body = document.body;
-
-                if (html.classList.contains('light') || body.classList.contains('light')) {
-                    // Switch to dark
-                    html.classList.remove('light');
-                    body.classList.remove('light');
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    // Switch to light
-                    html.classList.add('light');
-                    body.classList.add('light');
-                    localStorage.setItem('theme', 'light');
-                }
-
-                updateThemeIcons();
-            });
-        });
-
+        })();
     </script>
 </body>
 </html>
