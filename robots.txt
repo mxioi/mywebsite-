@@ -1,5 +1,5 @@
-# robots.txt for IOW Takeover 2026
+# robots.txt for IOW Takeover 2027
 User-agent: *
 Allow: /
 
-Sitemap: https://iow2026.example.com/sitemap.xml
+Sitemap: https://iowto.mxioi.uk/sitemap.xml

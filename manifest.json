@@ -1,12 +1,17 @@
 {
-  "name": "IOW Takeover 2026",
-  "short_name": "IOW 2026",
-  "description": "Isle of Wight Takeover countdown and event information for 2026",
+  "name": "IOW Takeover 2027",
+  "short_name": "IOW Takeover",
+  "description": "Isle of Wight Takeover 2027 countdown and event information. 15-16 May 2027.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#0b0b0f",
+  "theme_color": "#0b0b0f",
   "icons": [
+    {
+      "src": "images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
     {
       "src": "images/icon-192.png",
       "sizes": "192x192",
