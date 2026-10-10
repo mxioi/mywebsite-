@@ -42,6 +42,7 @@
                 theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
             }
             document.documentElement.setAttribute('data-theme', theme);
+            document.documentElement.classList.add('js');
         })();
     </script>
 
@@ -128,7 +129,13 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
         }
         .btn svg { width: 20px; height: 20px; flex-shrink: 0; }
-        .btn-primary { background: var(--accent-grad); color: #fff; box-shadow: 0 10px 30px -10px var(--accent); }
+        .btn-primary { position: relative; overflow: hidden; background: var(--accent-grad); color: #fff; box-shadow: 0 10px 30px -10px var(--accent); }
+        .btn-primary::after {
+            content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+            background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+            transform: skewX(-20deg); transition: left 0.7s ease;
+        }
+        .btn-primary:hover::after { left: 130%; }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -10px var(--accent); }
         .btn-ghost { background: rgba(255, 255, 255, 0.1); color: #fff; border-color: rgba(255, 255, 255, 0.25); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
         .btn-ghost:hover { background: rgba(255, 255, 255, 0.18); }
@@ -176,7 +183,25 @@
             padding: calc(110px + env(safe-area-inset-top)) 0 80px;
         }
         .hero-bg { position: absolute; inset: 0; z-index: -2; }
-        .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; transform: scale(1.04); }
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; animation: kenburns 24s ease-in-out infinite alternate; }
+        @keyframes kenburns { from { transform: scale(1.04) translate3d(0, 0, 0); } to { transform: scale(1.14) translate3d(-1.5%, -1%, 0); } }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+        .hero-content > * { animation: fadeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+        .hero-content > :nth-child(2) { animation-delay: 0.12s; }
+        .hero-content > :nth-child(3) { animation-delay: 0.24s; }
+        .hero-content > :nth-child(4) { animation-delay: 0.36s; }
+        .hero-content > :nth-child(5) { animation-delay: 0.48s; }
+        .scroll-cue {
+            position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%);
+            width: 26px; height: 42px; border: 2px solid rgba(255, 255, 255, 0.5); border-radius: 14px;
+            animation: fadeUp 1s 1s both;
+        }
+        .scroll-cue::after {
+            content: ''; position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; margin-left: -2px;
+            border-radius: 2px; background: #fff; animation: scrollDot 1.8s ease-in-out infinite;
+        }
+        @keyframes scrollDot { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(14px); } }
+        @media (max-height: 700px) { .scroll-cue { display: none; } }
         .hero::after {
             content: ''; position: absolute; inset: 0; z-index: -1;
             background:
@@ -192,7 +217,8 @@
             backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
         }
-        .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(255, 106, 43, 0.3); }
+        .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: pulse 2s ease-out infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(255, 106, 43, 0.7); } 100% { box-shadow: 0 0 0 10px rgba(255, 106, 43, 0); } }
         .hero h1 { font-size: clamp(2.8rem, 9vw, 6.2rem); font-weight: 700; margin: 22px 0 18px; letter-spacing: -0.035em; }
         .hero h1 .grad { background: var(--accent-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .hero-sub { font-size: clamp(1.05rem, 2.2vw, 1.3rem); color: rgba(255, 255, 255, 0.85); max-width: 620px; }
@@ -206,6 +232,8 @@
             border-radius: var(--radius-sm); padding: 16px 8px 12px; text-align: center;
         }
         .cd-num { font-family: var(--font-display); font-size: clamp(1.8rem, 6vw, 3rem); font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+        .cd-num.tick { animation: tick 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        @keyframes tick { 0% { opacity: 0.2; transform: translateY(-40%); } 100% { opacity: 1; transform: none; } }
         .cd-label { margin-top: 8px; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255, 255, 255, 0.7); }
         .countdown-done {
             grid-column: 1 / -1; padding: 22px; text-align: center; border-radius: var(--radius-sm);
@@ -231,7 +259,7 @@
             padding: 32px; box-shadow: var(--shadow);
             transition: transform 0.25s ease, border-color 0.25s ease;
         }
-        .day-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+        .day-card:hover { transform: translateY(-6px); border-color: rgba(255, 106, 43, 0.45); box-shadow: 0 24px 50px -24px rgba(255, 106, 43, 0.45); }
         .day-card::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--accent-grad); }
         .day-date { display: flex; align-items: baseline; gap: 14px; }
         .day-num { font-family: var(--font-display); font-size: 4rem; font-weight: 700; line-height: 1; letter-spacing: -0.04em; }
@@ -247,7 +275,10 @@
         .info-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
         @media (max-width: 1000px) { .info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 560px) { .info-grid { grid-template-columns: 1fr; } }
-        .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; }
+        .info-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; transition: transform 0.25s ease, border-color 0.25s ease; }
+        .info-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+        .info-card:hover .info-icon { transform: rotate(-8deg) scale(1.08); }
+        .info-icon { transition: transform 0.3s cubic-bezier(0.3, 1.5, 0.5, 1); }
         .info-icon { width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center; background: rgba(255, 106, 43, 0.12); color: var(--accent); margin-bottom: 18px; }
         .info-icon svg { width: 22px; height: 22px; }
         .info-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
@@ -256,29 +287,67 @@
         .info-card a.link { margin-top: auto; padding-top: 14px; color: var(--accent); font-weight: 600; font-size: 0.92rem; text-decoration: none; }
         .info-card a.link:hover { text-decoration: underline; }
 
-        /* Gallery */
-        .gallery { columns: 3; column-gap: 16px; }
-        @media (max-width: 860px) { .gallery { columns: 2; column-gap: 10px; } .gallery .gallery-item { margin-bottom: 10px; } }
-        .gallery-item {
-            break-inside: avoid; margin: 0 0 16px; position: relative; overflow: hidden;
-            border-radius: var(--radius-sm); cursor: zoom-in; border: 0; padding: 0; width: 100%;
-            background: var(--surface-2); display: block;
+        /* Gallery: bento grid. Spans repeat every 6 photos (see GALLERY_PATTERN in the script). */
+        .gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 220px; grid-auto-flow: dense; gap: 14px; }
+        .g-big { grid-column: span 2; grid-row: span 2; }
+        .g-tall { grid-row: span 2; }
+        .g-wide { grid-column: span 2; }
+        @media (max-width: 860px) {
+            .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 160px; gap: 10px; }
         }
-        .gallery-item img { width: 100%; height: auto; transition: transform 0.5s ease; }
-        .gallery-item:hover img { transform: scale(1.04); }
-        .gallery-note { margin-top: 20px; color: var(--text-faint); font-size: 0.9rem; text-align: center; }
+        .gallery-item {
+            position: relative; overflow: hidden; border-radius: var(--radius); cursor: zoom-in;
+            border: 1px solid var(--border); padding: 0; margin: 0; width: 100%; height: 100%;
+            background: var(--surface-2); display: block; isolation: isolate; text-align: left; color: #fff; font: inherit;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.4s ease; }
+        .gallery-item::after {
+            content: ''; position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.7) 100%);
+            opacity: 0; transition: opacity 0.4s ease;
+        }
+        .g-caption {
+            position: absolute; left: 16px; right: 56px; bottom: 14px; z-index: 2;
+            font-weight: 600; font-size: 0.95rem; line-height: 1.3; text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+            opacity: 0; transform: translateY(10px); transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .g-zoom {
+            position: absolute; right: 12px; bottom: 12px; z-index: 2; width: 36px; height: 36px; border-radius: 999px;
+            display: grid; place-items: center; background: rgba(255, 255, 255, 0.18); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+            opacity: 0; transform: scale(0.7); transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .g-zoom svg { width: 18px; height: 18px; }
+        .gallery-item:hover img, .gallery-item:focus-visible img { transform: scale(1.08); }
+        .gallery-item:hover::after, .gallery-item:focus-visible::after { opacity: 1; }
+        .gallery-item:hover .g-caption, .gallery-item:focus-visible .g-caption { opacity: 1; transform: none; }
+        .gallery-item:hover .g-zoom, .gallery-item:focus-visible .g-zoom { opacity: 1; transform: none; }
+        /* Touch screens can't hover, so show captions on the bigger tiles */
+        @media (hover: none) {
+            .gallery-item.g-big::after, .gallery-item.g-wide::after { opacity: 1; }
+            .gallery-item.g-big .g-caption, .gallery-item.g-wide .g-caption { opacity: 1; transform: none; font-size: 0.85rem; }
+        }
+        .js .gallery-item.reveal { transform: translateY(30px) scale(0.95); }
+        .js .gallery-item.reveal.in { transform: none; }
 
         /* Lightbox */
-        .lightbox { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; }
-        .lightbox::backdrop { background: rgba(5, 5, 8, 0.92); }
-        .lightbox-inner { width: 100%; height: 100%; display: grid; place-items: center; padding: 60px 16px; }
-        .lightbox img { max-width: 100%; max-height: calc(100vh - 120px); border-radius: var(--radius-sm); object-fit: contain; }
-        .lb-btn { position: fixed; width: 48px; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.25); background: rgba(255, 255, 255, 0.1); color: #fff; cursor: pointer; display: grid; place-items: center; }
+        .lightbox { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; color: #fff; }
+        .lightbox::backdrop { background: rgba(5, 5, 8, 0.94); backdrop-filter: blur(6px); }
+        .lightbox[open] { animation: lbIn 0.35s ease both; }
+        .lightbox[open]::backdrop { animation: lbFade 0.35s ease both; }
+        @keyframes lbIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: none; } }
+        @keyframes lbFade { from { opacity: 0; } to { opacity: 1; } }
+        .lightbox-inner { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 64px 16px 24px; }
+        .lightbox img { max-width: 100%; max-height: calc(100vh - 150px); border-radius: var(--radius-sm); object-fit: contain; transition: opacity 0.25s ease, transform 0.25s ease; touch-action: pan-y; }
+        .lightbox img.swap { opacity: 0; transform: scale(0.97); }
+        .lb-meta { display: flex; gap: 14px; align-items: baseline; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); text-align: center; }
+        .lb-count { font-variant-numeric: tabular-nums; color: rgba(255, 255, 255, 0.55); font-size: 0.85rem; }
+        .lb-btn { position: fixed; width: 48px; height: 48px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.25); background: rgba(255, 255, 255, 0.1); color: #fff; cursor: pointer; display: grid; place-items: center; transition: background-color 0.2s; }
         .lb-btn:hover { background: rgba(255, 255, 255, 0.2); }
         .lb-btn svg { width: 22px; height: 22px; }
         .lb-close { top: 16px; right: 16px; }
         .lb-prev { left: 16px; top: 50%; transform: translateY(-50%); }
         .lb-next { right: 16px; top: 50%; transform: translateY(-50%); }
+        @media (max-width: 640px) { .lb-prev, .lb-next { top: auto; bottom: 20px; transform: none; } }
 
         /* Location */
         .location { display: grid; grid-template-columns: 1fr 1.4fr; gap: 24px; align-items: stretch; }
@@ -323,13 +392,16 @@
         @media (max-width: 760px) { .fab { display: inline-flex; } }
 
         /* Reveal on scroll */
-        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-        .reveal.in { opacity: 1; transform: none; }
-        .no-js .reveal { opacity: 1; transform: none; }
+        .js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: var(--d, 0ms); }
+        .js .reveal.in { opacity: 1; transform: none; }
+
+        /* Scroll progress bar */
+        .progress { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 101; background: var(--accent-grad); transform-origin: 0 50%; transform: scaleX(0); pointer-events: none; }
     </style>
 </head>
 <body>
     <a href="#main" class="visually-hidden">Skip to content</a>
+    <div class="progress" id="progress" aria-hidden="true"></div>
 
     <!-- ===== Navigation ===== -->
     <header class="nav" id="nav">
@@ -382,6 +454,7 @@
                     </div>
                 </div>
             </div>
+            <a class="scroll-cue" href="#weekend" aria-label="Scroll to the weekend details"></a>
         </section>
 
         <!-- ===== The Weekend ===== -->
@@ -525,6 +598,7 @@
     <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
         <div class="lightbox-inner">
             <img id="lightbox-img" src="data:," alt="">
+            <div class="lb-meta"><span id="lb-caption"></span><span class="lb-count" id="lb-count"></span></div>
         </div>
         <button class="lb-btn lb-close" id="lb-close" type="button" aria-label="Close"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg></button>
         <button class="lb-btn lb-prev" id="lb-prev" type="button" aria-label="Previous photo"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg></button>
@@ -539,14 +613,16 @@
 
         // Gallery photos, shown in this order.
         // To add 2027 photos: put the files in images/iow-2027/ and add a line
-        // like { src: 'images/iow-2027/iow2027-1.jpg', alt: 'Describe the photo' },
+        // like { src: 'images/iow-2027/iow2027-1.jpg', caption: 'Short title', alt: 'Describe the photo' },
+        // The grid repeats a pattern every 6 photos: 1 big, 2 tall, 1 wide, 2 small.
+        // Landscape photos look best in the 1st and 4th spot of each group of 6.
         const PHOTOS = [
-            { src: 'images/iow-2025/bunker-cars.jpg',     alt: 'Cars parked inside an old clifftop gun battery overlooking the sea' },
-            { src: 'images/iow-2025/clifftop-lineup.jpg', alt: 'A line of cars on a clifftop car park with the coast behind' },
-            { src: 'images/iow-2025/crew-selfie.jpg',     alt: 'Group selfie of the crew on the seafront' },
-            { src: 'images/iow-2025/sunset-beach.jpg',    alt: 'Sunset over the sea from the cliffs' },
-            { src: 'images/iow-2025/polaroids.jpg',       alt: 'Polaroid photos from the Takeover party on a wooden table' },
-            { src: 'images/iow-2025/sunset-couple.jpg',   alt: 'Two friends on the cliffs at sunset' },
+            { src: 'images/iow-2025/bunker-cars.jpg',     caption: 'The bunker line-up',  alt: 'Cars parked inside an old clifftop gun battery overlooking the sea' },
+            { src: 'images/iow-2025/clifftop-lineup.jpg', caption: 'Clifftop meet',       alt: 'A line of cars on a clifftop car park with the coast behind' },
+            { src: 'images/iow-2025/polaroids.jpg',       caption: 'Party polaroids',     alt: 'Polaroid photos from the Takeover party on a wooden table' },
+            { src: 'images/iow-2025/crew-selfie.jpg',     caption: 'The crew',            alt: 'Group selfie of the crew on the seafront' },
+            { src: 'images/iow-2025/sunset-beach.jpg',    caption: 'Island sunset',       alt: 'Sunset over the sea from the cliffs' },
+            { src: 'images/iow-2025/sunset-couple.jpg',   caption: 'Golden hour',         alt: 'Two friends on the cliffs at sunset' },
         ];
 
         // Map pin (2026 venue until the 2027 venue is announced)
@@ -567,10 +643,13 @@
             // --- Nav background + mobile button on scroll ---
             const nav = document.getElementById('nav');
             const fab = document.getElementById('fab');
+            const progress = document.getElementById('progress');
             function onScroll() {
                 const y = window.scrollY;
                 nav.classList.toggle('scrolled', y > 40);
                 fab.classList.toggle('visible', y > window.innerHeight * 0.6);
+                const max = document.documentElement.scrollHeight - window.innerHeight;
+                progress.style.transform = 'scaleX(' + (max > 0 ? Math.min(y / max, 1) : 0) + ')';
             }
             window.addEventListener('scroll', onScroll, { passive: true });
             onScroll();
@@ -596,24 +675,47 @@
                     Math.floor(diff / 60000) % 60,
                     Math.floor(diff / 1000) % 60,
                 ];
-                parts.forEach((v, i) => { els[i].textContent = String(v).padStart(2, '0'); });
+                parts.forEach((v, i) => {
+                    const text = String(v).padStart(2, '0');
+                    if (els[i].textContent === text) return;
+                    const first = els[i].textContent === '--';
+                    els[i].textContent = text;
+                    if (!first) {
+                        els[i].classList.remove('tick');
+                        void els[i].offsetWidth; // restart the animation
+                        els[i].classList.add('tick');
+                    }
+                });
             }
             tick();
             timer = setInterval(tick, 1000);
 
             // --- Gallery + lightbox ---
             const grid = document.getElementById('gallery-grid');
+            const GALLERY_PATTERN = ['g-big', 'g-tall', 'g-tall', 'g-wide', '', ''];
             PHOTOS.forEach(function (photo, i) {
                 const btn = document.createElement('button');
                 btn.type = 'button';
-                btn.className = 'gallery-item reveal';
-                btn.setAttribute('aria-label', 'View photo: ' + photo.alt);
+                btn.className = ('gallery-item reveal ' + GALLERY_PATTERN[i % GALLERY_PATTERN.length]).trim();
+                btn.style.setProperty('--d', (i % 6) * 90 + 'ms');
+                btn.setAttribute('aria-label', 'View photo: ' + (photo.caption || photo.alt));
                 const img = document.createElement('img');
                 img.src = photo.src;
                 img.alt = photo.alt;
                 img.loading = i < 3 ? 'eager' : 'lazy';
                 img.decoding = 'async';
                 btn.appendChild(img);
+                if (photo.caption) {
+                    const cap = document.createElement('span');
+                    cap.className = 'g-caption';
+                    cap.textContent = photo.caption;
+                    btn.appendChild(cap);
+                }
+                const zoom = document.createElement('span');
+                zoom.className = 'g-zoom';
+                zoom.setAttribute('aria-hidden', 'true');
+                zoom.innerHTML = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4h4M20 8V4h-4M4 16v4h4M20 16v4h-4"/></svg>';
+                btn.appendChild(zoom);
                 btn.addEventListener('click', function () { openLightbox(i); });
                 grid.appendChild(btn);
             });
@@ -621,10 +723,19 @@
             const lb = document.getElementById('lightbox');
             const lbImg = document.getElementById('lightbox-img');
             let current = 0;
-            function show(i) {
+            const lbCaption = document.getElementById('lb-caption');
+            const lbCount = document.getElementById('lb-count');
+            function show(i, animate) {
                 current = (i + PHOTOS.length) % PHOTOS.length;
-                lbImg.src = PHOTOS[current].src;
-                lbImg.alt = PHOTOS[current].alt;
+                const photo = PHOTOS[current];
+                const apply = function () {
+                    lbImg.src = photo.src;
+                    lbImg.alt = photo.alt;
+                    lbCaption.textContent = photo.caption || '';
+                    lbCount.textContent = (current + 1) + ' / ' + PHOTOS.length;
+                    requestAnimationFrame(() => lbImg.classList.remove('swap'));
+                };
+                if (animate) { lbImg.classList.add('swap'); setTimeout(apply, 180); } else apply();
             }
             function openLightbox(i) {
                 show(i);
@@ -632,20 +743,37 @@
                 else window.open(PHOTOS[i].src, '_blank');
             }
             document.getElementById('lb-close').addEventListener('click', () => lb.close());
-            document.getElementById('lb-prev').addEventListener('click', () => show(current - 1));
-            document.getElementById('lb-next').addEventListener('click', () => show(current + 1));
+            document.getElementById('lb-prev').addEventListener('click', () => show(current - 1, true));
+            document.getElementById('lb-next').addEventListener('click', () => show(current + 1, true));
+            // Swipe left/right on phones
+            let touchX = null;
+            lb.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+            lb.addEventListener('touchend', e => {
+                if (touchX === null) return;
+                const dx = e.changedTouches[0].clientX - touchX;
+                touchX = null;
+                if (Math.abs(dx) > 50) show(current + (dx < 0 ? 1 : -1), true);
+            });
             lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lightbox-inner')) lb.close(); });
             lb.addEventListener('keydown', e => {
-                if (e.key === 'ArrowLeft') show(current - 1);
-                if (e.key === 'ArrowRight') show(current + 1);
+                if (e.key === 'ArrowLeft') show(current - 1, true);
+                if (e.key === 'ArrowRight') show(current + 1, true);
             });
 
             // --- Reveal on scroll ---
             const revealEls = document.querySelectorAll('.reveal');
+            document.querySelectorAll('.days, .info-grid').forEach(group => {
+                Array.from(group.children).forEach((el, i) => el.style.setProperty('--d', i * 110 + 'ms'));
+            });
             if ('IntersectionObserver' in window) {
                 const io = new IntersectionObserver(function (entries) {
                     entries.forEach(function (entry) {
-                        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+                        if (!entry.isIntersecting) return;
+                        const el = entry.target;
+                        el.classList.add('in');
+                        io.unobserve(el);
+                        // Once revealed, drop the reveal styles so hover effects use their own timing
+                        setTimeout(() => { el.classList.remove('reveal', 'in'); el.style.removeProperty('--d'); }, 1400);
                     });
                 }, { rootMargin: '0px 0px -8% 0px' });
                 revealEls.forEach(el => io.observe(el));

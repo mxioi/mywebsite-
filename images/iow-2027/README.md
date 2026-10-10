@@ -13,9 +13,10 @@ Drop photos from the 2027 Takeover in this folder.
 3. Open `index.html`, find the `PHOTOS` list near the bottom (in the SITE CONFIG block)
    and add a line for it:
    ```js
-   { src: 'images/iow-2027/iow2027-1.jpg', alt: 'Short description of the photo' },
+   { src: 'images/iow-2027/iow2027-1.jpg', caption: 'Short title', alt: 'Short description of the photo' },
    ```
-   Photos show in the order they're listed, so put your favourites first.
+   Photos show in the order they're listed. The grid repeats a pattern every 6 photos
+   (1 big, 2 tall, 1 wide, 2 small), so landscape shots look best in the 1st and 4th spot.
 
 ## Changing the hero (top of page) photo
 
