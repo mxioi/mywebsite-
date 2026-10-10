@@ -16,11 +16,11 @@
     <meta property="og:url" content="https://iowto.mxioi.uk/">
     <meta property="og:title" content="IOW Takeover 2027 · 15–16 May">
     <meta property="og:description" content="Party on Saturday 15th May, Show Day on Sunday 16th May 2027. Join the WhatsApp group for updates.">
-    <meta property="og:image" content="https://iowto.mxioi.uk/images/iow-2025/bunker-cars.jpg">
+    <meta property="og:image" content="https://iowto.mxioi.uk/images/iow-2027/iow2027-1.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="IOW Takeover 2027 · 15–16 May">
     <meta name="twitter:description" content="Party on Saturday 15th May, Show Day on Sunday 16th May 2027. Join the WhatsApp group for updates.">
-    <meta name="twitter:image" content="https://iowto.mxioi.uk/images/iow-2025/bunker-cars.jpg">
+    <meta name="twitter:image" content="https://iowto.mxioi.uk/images/iow-2027/iow2027-1.jpg">
 
     <!-- Content Security Policy -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com;">
@@ -446,7 +446,7 @@
         <!-- ===== Hero ===== -->
         <section class="hero" id="top" aria-labelledby="hero-title">
             <div class="hero-bg">
-                <img src="images/iow-2025/bunker-cars.jpg" alt="" fetchpriority="high">
+                <img src="images/iow-2027/iow2027-1.jpg" alt="" fetchpriority="high">
             </div>
             <div class="container">
                 <div class="hero-content">
@@ -631,15 +631,18 @@
         // Gallery photos, shown in this order.
         // To add 2027 photos: put the files in images/iow-2027/ and add a line
         // like { src: 'images/iow-2027/iow2027-1.jpg', caption: 'Short title', alt: 'Describe the photo' },
-        // The grid repeats a pattern every 6 photos: 1 big, 2 tall, 1 wide, 2 small.
-        // Landscape photos look best in the 1st and 4th spot of each group of 6.
+        // The grid repeats a pattern every 8 photos: 1 big, 2 tall, 1 wide, 2 small, 2 wide.
+        // Landscape photos look best in the 1st, 4th, 7th and 8th spot of each group of 8.
+        // Optional `position` picks which part of the photo stays in view when it's cropped.
         const PHOTOS = [
-            { src: 'images/iow-2025/bunker-cars.jpg',     caption: 'The bunker line-up',  alt: 'Cars parked inside an old clifftop gun battery overlooking the sea' },
-            { src: 'images/iow-2025/clifftop-lineup.jpg', caption: 'Clifftop meet',       alt: 'A line of cars on a clifftop car park with the coast behind' },
-            { src: 'images/iow-2025/polaroids.jpg',       caption: 'Party polaroids',     alt: 'Polaroid photos from the Takeover party on a wooden table' },
-            { src: 'images/iow-2025/crew-selfie.jpg',     caption: 'The crew',            alt: 'Group selfie of the crew on the seafront' },
-            { src: 'images/iow-2025/sunset-beach.jpg',    caption: 'Island sunset',       alt: 'Sunset over the sea from the cliffs' },
-            { src: 'images/iow-2025/sunset-couple.jpg',   caption: 'Golden hour',         alt: 'Two friends on the cliffs at sunset' },
+            { src: 'images/iow-2027/iow2027-1.jpg', caption: 'Seafront line-up',   alt: 'Cars parked along the seafront below cliffs covered in pink flowers' },
+            { src: 'images/iow-2027/iow2027-2.jpg', caption: 'Up close',           alt: 'A black Mercedes and a red MX-5 parked side by side in front of flowering bushes', position: 'center 70%' },
+            { src: 'images/iow-2027/iow2027-3.jpg', caption: 'Down by the sea',    alt: 'Cars parked on a seafront road with the cliffs and sea behind', position: 'center 65%' },
+            { src: 'images/iow-2027/iow2027-4.jpg', caption: 'Clifftop views',     alt: 'A black Mercedes SLK parked on a clifftop road overlooking the sea' },
+            { src: 'images/iow-2027/iow2027-5.jpg', caption: 'Party polaroids',    alt: 'Polaroid photos of friends in fancy dress on a wooden table' },
+            { src: 'images/iow-2027/iow2027-6.jpg', caption: 'The meet-up',        alt: 'Cars gathered on a driveway, seen from above', position: 'center 70%' },
+            { src: 'images/iow-2027/iow2027-7.jpg', caption: 'Fancy dress party',  alt: 'A group of friends in fancy dress costumes at the Takeover party' },
+            { src: 'images/iow-2027/iow2027-8.jpg', caption: 'The bunker',         alt: 'Cars parked inside an old clifftop gun battery overlooking the sea', position: 'center 64%' },
         ];
 
         // Map pin (2026 venue until the 2027 venue is announced)
@@ -709,16 +712,17 @@
 
             // --- Gallery + lightbox ---
             const grid = document.getElementById('gallery-grid');
-            const GALLERY_PATTERN = ['g-big', 'g-tall', 'g-tall', 'g-wide', '', ''];
+            const GALLERY_PATTERN = ['g-big', 'g-tall', 'g-tall', 'g-wide', '', '', 'g-wide', 'g-wide'];
             PHOTOS.forEach(function (photo, i) {
                 const btn = document.createElement('button');
                 btn.type = 'button';
                 btn.className = ('gallery-item reveal ' + GALLERY_PATTERN[i % GALLERY_PATTERN.length]).trim();
-                btn.style.setProperty('--d', (i % 6) * 90 + 'ms');
+                btn.style.setProperty('--d', (i % GALLERY_PATTERN.length) * 80 + 'ms');
                 btn.setAttribute('aria-label', 'View photo: ' + (photo.caption || photo.alt));
                 const img = document.createElement('img');
                 img.src = photo.src;
                 img.alt = photo.alt;
+                if (photo.position) img.style.objectPosition = photo.position;
                 img.loading = i < 3 ? 'eager' : 'lazy';
                 img.decoding = 'async';
                 btn.appendChild(img);
