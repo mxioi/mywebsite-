@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 102.0 60.8">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff7a3d"/>
+      <stop offset="100%" stop-color="#ff3d6e"/>
+    </linearGradient>
+  </defs>
+  <!-- Isle of Wight outline simplified from ONS boundary data. Source: Office for National Statistics licensed under the Open Government Licence v3.0. Contains OS data © Crown copyright and database right. -->
+  <path fill="url(#g)" stroke="url(#g)" stroke-width="1.2" stroke-linejoin="round" d="M55.9 0.7 L58.7 11.4 L57.0 18.4 L57.4 21.3 L57.2 18.5 L60.2 10.9 L58.1 8.2 L57.0 0.8 L59.8 0.3 L65.5 4.6 L67.4 7.4 L66.6 8.8 L67.2 7.2 L72.1 8.9 L69.9 13.0 L71.5 9.9 L72.7 9.9 L82.3 10.3 L88.3 12.4 L92.3 14.0 L94.6 18.7 L94.7 22.1 L93.4 21.7 L93.6 20.6 L92.5 22.5 L94.5 23.5 L95.4 21.8 L97.6 22.3 L100.0 24.7 L95.2 29.1 L94.5 31.2 L87.7 32.2 L82.7 35.7 L79.8 43.4 L79.6 49.0 L77.7 51.9 L65.3 56.9 L55.5 58.7 L47.8 50.5 L43.4 48.1 L38.2 42.9 L26.9 37.8 L19.6 30.6 L14.6 29.7 L1.6 32.7 L0.0 31.8 L3.3 31.0 L3.3 28.6 L7.2 27.3 L10.0 22.9 L10.0 20.3 L12.5 18.4 L16.5 18.4 L14.8 18.8 L16.2 19.6 L16.1 21.5 L16.8 21.2 L15.2 21.8 L16.1 24.6 L15.2 25.8 L16.3 24.7 L15.6 22.5 L17.1 21.5 L16.5 20.3 L17.4 20.3 L16.0 18.8 L22.5 17.6 L30.4 12.6 L33.7 13.1 L32.0 13.0 L33.8 14.2 L32.5 14.8 L33.7 14.8 L32.7 16.5 L30.7 17.3 L30.9 18.9 L29.2 19.4 L31.1 19.1 L33.5 15.8 L33.6 19.5 L33.6 17.0 L34.7 17.9 L33.7 16.2 L36.1 17.3 L34.2 15.5 L35.4 13.1 L34.3 15.7 L35.3 14.2 L36.1 15.5 L36.6 14.7 L37.6 15.8 L40.0 15.6 L40.6 17.3 L40.1 15.2 L41.9 14.5 L38.2 15.5 L37.0 14.5 L38.5 13.7 L35.9 13.0 L36.9 12.5 L34.2 12.8 L44.9 8.7 L47.2 4.5 L51.6 0.5Z"/>
+</svg>

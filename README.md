@@ -127,3 +127,9 @@ Tested and working on:
 ## License
 
 © Isle of Wight Takeover community. All rights reserved.
+
+## Credits
+
+The Isle of Wight outline in `images/logo-island.svg` and `images/favicon.svg` is simplified from
+ONS local authority boundary data. Source: Office for National Statistics licensed under the
+Open Government Licence v3.0. Contains OS data © Crown copyright and database right.
