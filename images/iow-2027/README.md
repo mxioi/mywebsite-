@@ -15,13 +15,13 @@ Drop photos from the 2027 Takeover in this folder.
    ```js
    { src: 'images/iow-2027/iow2027-1.jpg', caption: 'Short title', alt: 'Short description of the photo' },
    ```
-   Photos show in the order they're listed. The grid repeats a pattern every 6 photos
-   (1 big, 2 tall, 1 wide, 2 small), so landscape shots look best in the 1st and 4th spot.
+   Photos show in the order they're listed. The grid repeats a pattern every 8 photos
+   (1 big, 2 tall, 1 wide, 2 small, 2 wide), so landscape shots look best in the 1st, 4th,
+   7th and 8th spot. If a crop cuts off the cars, add `position: 'center 70%'` to that line
+   (a bigger % keeps more of the bottom of the photo in view).
 
 ## Changing the hero (top of page) photo
 
 Replace the `src` in the `<div class="hero-bg">` image near the top of `index.html`.
 A landscape photo with the cars in the middle works best. Also update the
 `og:image` and `twitter:image` tags in the `<head>` so link previews use it.
-
-Older photos live in `images/iow-2025/`.

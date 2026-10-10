@@ -32,8 +32,7 @@ The text on the page (dates, venue card, location section) is plain HTML; search
 
 ## Photos
 
-- `images/iow-2027/`: put 2027 photos here. See `images/iow-2027/README.md` for sizing and how to add them to the gallery.
-- `images/iow-2025/`: photos from previous Takeovers, web-sized (shown until 2027 photos are added).
+- `images/iow-2027/`: gallery and hero photos. See `images/iow-2027/README.md` for sizing and how to add them to the gallery.
 
 ## Local Development
 
@@ -87,8 +86,7 @@ This site is configured for GitHub Pages:
 ├── sitemap.xml            # Site map for SEO
 ├── CNAME                  # Custom domain configuration
 ├── images/
-│   ├── iow-2025/         # Previous event photos (web-sized)
-│   └── iow-2027/         # 2027 event photos (add yours here)
+│   └── iow-2027/         # Gallery and hero photos (web-sized)
 └── scripts/
     └── preview.sh        # Local preview server script
 ```
